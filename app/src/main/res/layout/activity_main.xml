@@ -12,26 +12,26 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/btn1" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"
-            android:textSize="45sp" android:layout_marginStart="24dp" style="@style/Botones"/>
+            android:id="@+id/btn1" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="32dp"
+            android:textSize="45sp" android:layout_marginStart="16dp" style="@style/Botones"/>
     <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/btn2" android:layout_marginStart="16dp"
             app:layout_constraintStart_toEndOf="@+id/btn1" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="24dp" style="@style/Botones"/>
+            android:layout_marginTop="32dp" style="@style/Botones"/>
     <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             style="@style/Botones"
             android:id="@+id/btn3" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/btn2" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="24dp" android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toEndOf="@+id/btn2"
+            android:layout_marginTop="32dp" app:layout_constraintTop_toTopOf="parent"/>
     <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             style="@style/Botones"
-            android:id="@+id/btn4" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
+            android:id="@+id/btn4" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/btn1"/>
     <Button
             android:layout_width="100dp"
@@ -45,14 +45,14 @@
             android:layout_height="100dp"
             style="@style/Botones"
             android:id="@+id/btn6" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/btn5" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="24dp" android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/btn5"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btn3"/>
     <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             style="@style/Botones"
-            android:id="@+id/btn7" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
+            android:id="@+id/btn7" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/btn4"/>
     <Button
             android:layout_width="100dp"
@@ -67,8 +67,8 @@
             style="@style/Botones"
             android:id="@+id/btn9" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btn6" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/btn8" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="24dp"/>
+            app:layout_constraintStart_toEndOf="@+id/btn8"
+    />
     <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -85,5 +85,6 @@
             android:id="@+id/btnReiniciar" android:layout_marginTop="37dp"
             app:layout_constraintTop_toBottomOf="@+id/txtGanador" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="24dp" android:layout_marginStart="24dp" android:text="@string/lbl_reiniciar"/>
+            android:layout_marginEnd="24dp" android:layout_marginStart="24dp" android:text="@string/lbl_reiniciar"
+            android:layout_marginBottom="27dp" app:layout_constraintBottom_toBottomOf="parent"/>
 </android.support.constraint.ConstraintLayout>

@@ -38,8 +38,11 @@ class MainActivity : AppCompatActivity() {
         val boton = view as Button
         setMatrixUsuario(boton.id, numUser)
 
-        if (validarFilas(numUser)) {
+        if (validarFilas(numUser) || validarColumnas(numUser)
+            || validarDiagonal(numUser) || validarDiagonalInversa(numUser)
+        ) {
             imprimirGanador(numUser)
+            desHabilitarBotones()
         }
 
         if (numUser == 1) {
@@ -47,16 +50,76 @@ class MainActivity : AppCompatActivity() {
         } else {
             boton.clickUsuario2()
         }
+
     }
 
-    private fun imprimirGanador(numUser: Int) {
-        txtGanador.setText("El ganador es $numUser")
+    private fun validarDiagonalInversa(numUser: Int): Boolean {
+        val tam = matrix.size - 1
+        var tmpContador = 0
+
+        for ((indice2, indice) in (tam downTo 0).withIndex()) {
+
+            if (matrix[indice][indice2] == numUser) {
+                tmpContador++
+            }
+
+        }
+
+        if (tmpContador == 3) {
+            return true
+        }
+
+        return false
+    }
+
+    private fun validarDiagonal(numUser: Int): Boolean {
+
+        val tam = matrix.size
+        var tmpContador = 0
+
+        for (indice in 0 until tam) {
+
+            if (matrix[indice][indice] == numUser) {
+                tmpContador++
+            }
+
+        }
+
+        if (tmpContador == 3) {
+            return true
+        }
+
+        return false
+
+
+    }
+
+    private fun validarColumnas(numUser: Int): Boolean {
+        val tam = matrix.size
+        var tmpContador: Int
+
+        for (col in 0 until tam) {
+            tmpContador = 0
+            for (row in 0 until tam) {
+                if (matrix[row][col] != numUser) {
+                    break
+                }
+
+                tmpContador++
+            }
+
+            if (tmpContador == 3) {
+                return true
+            }
+        }
+
+        return false
     }
 
     private fun validarFilas(numUser: Int): Boolean {
 
         val tam = matrix.size
-        var tmpContador = 0
+        var tmpContador: Int
 
         for (row in 0 until tam) {
             tmpContador = 0
@@ -74,6 +137,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         return false
+    }
+
+    private fun imprimirGanador(numUser: Int) {
+        txtGanador.text = "El ganador es $numUser"
     }
 
     private fun setMatrixUsuario(id: Int, numUser: Int) {
@@ -109,7 +176,21 @@ class MainActivity : AppCompatActivity() {
         btn8.reiniciar()
         btn9.reiniciar()
 
+        txtGanador.text = ""
+
         numUser = 1
+    }
+
+    fun desHabilitarBotones() {
+        btn1.isEnabled = false
+        btn2.isEnabled = false
+        btn3.isEnabled = false
+        btn4.isEnabled = false
+        btn5.isEnabled = false
+        btn6.isEnabled = false
+        btn7.isEnabled = false
+        btn8.isEnabled = false
+        btn9.isEnabled = false
     }
 
     fun Button.clickUsuario1() {
