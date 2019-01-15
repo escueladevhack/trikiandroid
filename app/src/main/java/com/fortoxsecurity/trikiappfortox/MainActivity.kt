@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private var numUser = 1
-    private var matrix = Array(3, { IntArray(3, { 0 }) })
+    private var matrix = Array(3) { IntArray(3) { 0 } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,13 +37,43 @@ class MainActivity : AppCompatActivity() {
 
         val boton = view as Button
         setMatrixUsuario(boton.id, numUser)
-        // validar filas
+
+        if (validarFilas(numUser)) {
+            imprimirGanador(numUser)
+        }
 
         if (numUser == 1) {
             boton.clickUsuario1()
         } else {
             boton.clickUsuario2()
         }
+    }
+
+    private fun imprimirGanador(numUser: Int) {
+        txtGanador.setText("El ganador es $numUser")
+    }
+
+    private fun validarFilas(numUser: Int): Boolean {
+
+        val tam = matrix.size
+        var tmpContador = 0
+
+        for (row in 0 until tam) {
+            tmpContador = 0
+            for (col in 0 until tam) {
+                if (matrix[row][col] != numUser) {
+                    break
+                }
+
+                tmpContador++
+            }
+
+            if (tmpContador == 3) {
+                return true
+            }
+        }
+
+        return false
     }
 
     private fun setMatrixUsuario(id: Int, numUser: Int) {
